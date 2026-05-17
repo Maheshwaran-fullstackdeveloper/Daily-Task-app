@@ -1,0 +1,207 @@
+/* ---- Login / Setup shared page styles ---- */
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg-page);
+}
+
+/* Centered card */
+.card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 40px 36px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    animation: fadeInUp 0.35s ease both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo area */
+.logoArea {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoMark {
+    width: 52px;
+    height: 52px;
+    background: var(--accent);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Fingerprint / biometric button */
+.fpBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.fpBtn:hover:not(:disabled) {
+    border-color: var(--accent-border);
+    background: var(--accent-dim);
+    color: var(--accent-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.fpBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.fpIcon { color: var(--accent-light); }
+.fpIconSpin { color: var(--accent-light); animation: spin 0.9s linear infinite; }
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.inputGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.input {
+    width: 100%;
+    background: var(--bg-surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 40px;
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+}
+
+.input::placeholder { color: var(--text-muted); }
+
+.input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+    background: var(--bg-surface);
+}
+
+.eyeBtn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    color: var(--text-muted);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.eyeBtn:hover { color: var(--text-primary); }
+
+/* Error message */
+.error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--danger);
+    font-size: 13px;
+    padding: 10px 12px;
+    background: var(--danger-dim);
+    border: 1px solid var(--danger-border);
+    border-radius: 8px;
+}
+
+/* Submit button */
+.submitBtn {
+    padding: 12px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.submitBtn:hover:not(:disabled) {
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.submitBtn:disabled { opacity: 0.65; cursor: not-allowed; }
+
+/* Spinner inside button */
+.spinner {
+    width: 17px; height: 17px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+@source "../src/**/*.tsx";
+
+@layer base {
+  *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+  }
+}
+
+/* ===========================
+   DARK THEME (default)
+=========================== */
+:root {
+    --bg-page:       #0d1117;
+    --bg-surface:    #161b22;
+    --bg-surface-2:  #1c2333;
+    --bg-surface-3:  #222d40;
+    --bg-hover:      #1e2d40;
+    --bg-active:     #162032;
+
+    --border:        #2a3a52;
+    --border-light:  #1f2e42;
+
+    --text-primary:  #e6edf3;
+    --text-secondary:#8b949e;
+    --text-muted:    #484f58;
+
+    --accent:        #2f81f7;
+    --accent-light:  #58a6ff;
+    --accent-dim:    rgba(47, 129, 247, 0.15);
+    --accent-border: rgba(47, 129, 247, 0.35);
+
+    --cyan:          #39d0d8;
+    --cyan-dim:      rgba(57, 208, 216, 0.12);
+
+    --success:       #3fb950;
+    --success-dim:   rgba(63, 185, 80, 0.12);
+    --success-border:rgba(63, 185, 80, 0.3);
+
+    --warning:       #d29922;
+    --warning-dim:   rgba(210, 153, 34, 0.12);
+
+    --danger:        #f85149;
+    --danger-dim:    rgba(248, 81, 73, 0.12);
+    --danger-border: rgba(248, 81, 73, 0.3);
+
+    --shadow-sm:     0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md:     0 4px 12px rgba(0,0,0,0.4);
+    --shadow-lg:     0 8px 24px rgba(0,0,0,0.5);
+    --shadow-xl:     0 16px 48px rgba(0,0,0,0.6);
+
+    --sidebar-bg:    #161b22;
+    --topbar-bg:     #161b22;
+}
+
+/* ===========================
+   BASE STYLES
+=========================== */
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root { min-height: 100vh; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input, textarea, select {
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ===========================
+   UTILITY CLASSES
+=========================== */
+.page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.accent-text {
+    color: var(--accent);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0;  }
+}
+@keyframes bounceIn {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.18); opacity: 1; }
+    80%  { transform: scale(0.96); }
+    100% { transform: scale(1); }
+}
+@keyframes checkPop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.4) rotate(8deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
